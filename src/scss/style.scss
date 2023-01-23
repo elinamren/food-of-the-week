@@ -1,0 +1,13 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(71, 103, 117, 1) 0%, rgba(168, 209, 226, 1) 48%, rgba(177, 155, 194, 0.7231267507002801) 100%);
+}
