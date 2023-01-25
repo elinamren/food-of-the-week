@@ -1,12 +1,13 @@
-function Menu() {
+function Menu({ meals }) {
   return (
     <section className="wrapper menu">
       <h1>Matsedel</h1>
       <ul>
-        <li>Köttfärssås</li>
-        <li>Kikärtsgryta</li>
-        <li>Potatisbullar</li>
-        <li>Korv med bröd</li>
+        {meals.map((meal) => {
+          return (
+            <li>{meal.fields.title}</li>
+          )
+        })}
       </ul>
     </section>
   );
