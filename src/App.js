@@ -10,6 +10,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(true);
   const [mealsOpen, setMealsOpen] = useState(false);
   const [ingredientsOpen, setIngredientsOpen] = useState(false);
+  // const [mealsOfTheWeek, setMealsOfTheWeek] = useState([]);
 
   const handleClick = (title) => {
     console.log(title);
@@ -35,12 +36,16 @@ function App() {
 
   return (
     <div className="wrapper">
-      {menuOpen && <Menu meals={mealsList}/>}
-      {mealsOpen && <Meals meals={mealsList}/>}
-      {ingredientsOpen && <Ingredients meals={mealsList}/>}
-      <Button handleClick={handleClick} title="Välj maträtter"/>
-      <Button handleClick={handleClick} title="Se matsedel"/>
-      <Button handleClick={handleClick} title="Se ingredienser"/>
+      <div>
+        {menuOpen && <Menu meals={mealsList}/>}
+        {mealsOpen && <Meals meals={mealsList} />}
+        {ingredientsOpen && <Ingredients meals={mealsList}/>}
+      </div>
+      <div className='button-wrapper'>
+        <Button handleClick={handleClick} title="Välj maträtter"/>
+        <Button handleClick={handleClick} title="Se matsedel"/>
+        <Button handleClick={handleClick} title="Se ingredienser"/>
+      </div>
     </div>
   );
 }

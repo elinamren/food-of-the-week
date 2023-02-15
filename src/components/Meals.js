@@ -2,11 +2,22 @@ const Meals = ({meals}) => {
   return (
     <>
       <h1>Maträtter</h1>
-      <ul>
+      <p>Välj veckans maträtter</p>
         {meals.map((meal, index) => {
-          return <li key={index}>{meal.title}</li>
+          return (
+            <div key={index}>
+              <input 
+                className="checkbox"
+                type="checkbox"
+                name={meal.title}
+                value={meal.title}
+                id={meal.slug}
+              />
+              <label for={meal.slug}>{meal.title}</label>
+            </div>
+          )
         })}
-      </ul>
+        <button>Spara</button>
     </>
   );
 };

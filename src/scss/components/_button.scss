@@ -8,3 +8,11 @@ button {
   text-transform: uppercase;
   border-radius: 40px;
 }
+
+.button-wrapper {
+  @media (min-width: 600px) {
+    button:nth-child(2) {
+      margin: 0 1em;
+    }
+  }
+}

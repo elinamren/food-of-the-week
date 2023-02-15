@@ -4,4 +4,7 @@
   height: 85vh;
   border-radius: 40px;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
