@@ -1,4 +1,6 @@
-const Meals = ({meals}) => {
+const Meals = ({meals, handleCheckboxes, checkedCheckboxes, saveMeals}) => {
+  console.log('checked checkboxes: ', checkedCheckboxes);
+
   return (
     <>
       <h1>Maträtter</h1>
@@ -12,12 +14,14 @@ const Meals = ({meals}) => {
                 name={meal.title}
                 value={meal.title}
                 id={meal.slug}
+                onChange={handleCheckboxes}
+                checked={checkedCheckboxes.includes(meal.slug) ? true : false}
               />
-              <label for={meal.slug}>{meal.title}</label>
+              <label htmlFor={meal.slug}>{meal.title}</label>
             </div>
           )
         })}
-        <button>Spara</button>
+        <button onClick={saveMeals}>Spara</button>
     </>
   );
 };

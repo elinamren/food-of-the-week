@@ -6,7 +6,9 @@ function Menu({ meals }) {
         {meals.map((meal, index) => {
           return <li key={index}>{meal.title}</li>
         })}
+
       </ul>
+      {meals.length < 1 && <p>Inga sparade maträtter</p>}
     </>
   );
 }

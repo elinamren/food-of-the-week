@@ -4,16 +4,15 @@ const Ingredients = ({ meals }) => {
   const [groceryList, setGroceryList] = useState([]);
   useEffect(() => {
     meals.map((meal) => {
-      setGroceryList((prevValue) => [...prevValue, ...meal.ingredients]);
+      return setGroceryList((prevValue) => [...prevValue, ...meal.ingredients]);
     });
-  }, [])
+  }, [meals])
 
-  console.log(groceryList);
   return (
     <>
       <h1>Ingredienser</h1>
       <ul>
-        {groceryList.map((grocery, index) => {
+        {groceryList.sort().map((grocery, index) => {
           return <li key={index}>{grocery}</li>
         })}
       </ul>
