@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Button from './components/Button';
 import Ingredients from './components/Ingredients';
@@ -12,6 +12,13 @@ function App() {
   const [ingredientsOpen, setIngredientsOpen] = useState(false);
   const [newMeals, setNewMeals] = useState([]);
   const [checkedCheckboxes, setCheckedCheckboxes] = useState([]);
+
+  // Get the saved meals when site render
+  useEffect(() => {
+    handleNewMeals();
+    getLocalItems();
+    // eslint-disable-next-line
+  }, []);
 
   const handleClick = (title) => {
     console.log(title);
@@ -53,34 +60,37 @@ function App() {
     console.log('new meals: ', newMeals);
   }
 
+  const mealsStorage = 'MealsLocalStorage';
+  const checkboxStorage = 'MealsCheckboxLocalStorage';
 
-  // const saveLocalItems = () => {
-  //   localStorage.setItem(mealsStorage, JSON.stringify(newMeals));
-  //   localStorage.setItem(checkboxStorage, JSON.stringify(checkedCheckboxes));
-  // };
+  const saveLocalItems = () => {
+    localStorage.setItem(mealsStorage, JSON.stringify(newMeals));
+    localStorage.setItem(checkboxStorage, JSON.stringify(checkedCheckboxes));
+  };
 
-  // const getLocalItems = () => {
-  //   // if (localStorage.getItem(mealsStorage) === null) {
-  //   //   localStorage.setItem(mealsStorage, JSON.stringify(""));
-  //   // } else {
-  //   //   let mealsFromLocal = JSON.parse(localStorage.getItem(mealsStorage));
-  //   //   setMeals(mealsFromLocal);
-  //   // }
-  //   if (localStorage.getItem(checkboxStorage) === null) {
-  //     localStorage.setItem(checkboxStorage, JSON.stringify(checkedCheckboxes));
-  //   } else {
-  //     let checkedFromLocal = JSON.parse(localStorage.getItem(checkboxStorage));
-  //     setCheckedCheckboxes(checkedFromLocal);
-  //   }
-  // };
+  const getLocalItems = () => {
+    if (localStorage.getItem(mealsStorage) === null) {
+      localStorage.setItem(mealsStorage, JSON.stringify(""));
+    } else {
+      let mealsFromLocal = JSON.parse(localStorage.getItem(mealsStorage));
+      setNewMeals(mealsFromLocal);
+    }
 
-  // useEffect(() => {
-  //   saveLocalItems();
-  //   // eslint-disable-next-line
-  // }, [
-  //   newMeals,
-  //   checkedCheckboxes,
-  // ]);
+    if (localStorage.getItem(checkboxStorage) === null) {
+      localStorage.setItem(checkboxStorage, JSON.stringify(checkedCheckboxes));
+    } else {
+      let checkedFromLocal = JSON.parse(localStorage.getItem(checkboxStorage));
+      setCheckedCheckboxes(checkedFromLocal);
+    }
+  };
+
+  useEffect(() => {
+    saveLocalItems();
+    // eslint-disable-next-line
+  }, [
+    newMeals,
+    checkedCheckboxes,
+  ]);
 
 
   return (
