@@ -25,7 +25,7 @@ const meals = [
     slug: 'kikartsgryta',    
     ingredients: ['Kikärtor', 'Ingefära', 'Vitlök', 'Pasta'],
     lunchBox: true,
-    quickToMake: false
+    quickToMake: true
   },
   {
     title: 'Potatisbullar',

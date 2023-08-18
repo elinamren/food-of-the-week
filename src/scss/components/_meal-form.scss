@@ -1,0 +1,15 @@
+.meal-form {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 80vw;
+  max-width: 500px;
+  background-color: #c8d2e8;
+  border: 2px solid black;
+  border-radius: 40px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}

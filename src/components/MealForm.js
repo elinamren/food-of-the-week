@@ -14,8 +14,7 @@ const MealForm = ({ addMeal }) => {
   }
   
   return (
-    <>
-    
+    <div className="meal-form">
       <label htmlFor="title">Namn</label>
       <input 
         type="text"
@@ -38,9 +37,9 @@ const MealForm = ({ addMeal }) => {
           setTitleValue("");
           setIngredientsValue("");
         }}>
-          Spara</button>
-    
-    </>
+          Lägg till maträtt
+      </button>
+    </div>
   );
 };
 
