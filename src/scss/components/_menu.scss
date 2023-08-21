@@ -1,10 +1,22 @@
 .wrapper {
   background-color: $white;
-  margin: 4em 2em;
-  height: 85vh;
+  margin: 4em 2em 6em;
+  height: 82vh;
   border-radius: 40px;
   padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  li {
+    list-style: none;
+    font-size: 1.125rem;
+    line-height: 3;
+    display: flex;
+    align-items: center;
+
+    .menu-title {
+      padding-right: 0.5em;
+    }
+  }
 }
