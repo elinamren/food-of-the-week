@@ -18,5 +18,27 @@
     .menu-title {
       padding-right: 0.5em;
     }
+
+    span,
+    svg {
+      pointer-events: none;
+    }
+  }
+}
+
+.line-through {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.4);
+
+  svg {
+    line,
+    path,
+    circle {
+      stroke: rgba(0, 0, 0, 0.4);
+    }
+
+    &.time-icon path {
+      fill: rgba(0, 0, 0, 0.4);
+    }
   }
 }

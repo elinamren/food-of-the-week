@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Ingredients = ({ meals }) => {
+const Ingredients = ({ meals, handleFinishItem }) => {
   const [groceryList, setGroceryList] = useState([]);
   useEffect(() => {
     meals.map((meal) => {
@@ -13,7 +13,7 @@ const Ingredients = ({ meals }) => {
       <h1>Ingredienser</h1>
       <ul>
         {groceryList.sort().map((grocery, index) => {
-          return <li key={index}>{grocery}</li>
+          return <li key={index} onClick={handleFinishItem}>{grocery}</li>
         })}
       </ul>
     </>

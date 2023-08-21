@@ -22,7 +22,10 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-
+  const handleFinishItem = (event) => {
+    console.log(event.target);
+    event.target.classList.toggle('line-through');
+  }
 
   const handleClick = (title) => {
     console.log(title);
@@ -124,10 +127,10 @@ function App() {
     <div className="wrapper">
       {/* <MealForm addMeal={handleAddMeal}/> */}
       <div>
-        {menuOpen && <Menu meals={newMealsList}/>}
+        {menuOpen && <Menu meals={newMealsList} handleFinishItem={handleFinishItem} />}
         {/* Change meals to "meals" for the added ones */}
         {mealsOpen && <Meals meals={mealsList} checkedCheckboxes={checkedCheckboxes} handleCheckboxes={handleCheckboxes} saveMeals={handleMealsList}/>}
-        {ingredientsOpen && <Ingredients meals={newMealsList}/>}
+        {ingredientsOpen && <Ingredients meals={newMealsList} handleFinishItem={handleFinishItem} />}
       </div>
       <div className='button-wrapper'>
         <Button handleClick={handleClick} title="Välj maträtter"/>
